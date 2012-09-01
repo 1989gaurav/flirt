@@ -1,0 +1,364 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="js/stroll.js"></script>
+    <!-- <script src="../facebox/facebox.js"></script> -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" rel="StyleSheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/map.css" />
+    <link rel="stylesheet" href="css/example.css">
+    <link rel="stylesheet" href="css/stroll.css">
+    <!--<link rel="stylesheet" href="../facebox/facebox.css"> -->
+	<style>
+			#container {
+				/*background:#ffffff url('images/carpet.jpg') repeat 0 0;*/
+				background-color:#225D82;
+				height:700px;
+				width:100%;
+			}
+			
+			.table {
+				position:absolute;
+			}
+			
+			.tableImage {
+				background:#ffffff url('images/table.jpg') repeat 0 0;
+				width:160px;
+				height:80px;
+				position:absolute;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+			}
+			
+			#tableImage1 {
+				top:130px;
+				left:130px;
+			}
+			
+			.chair {
+				width:20px;
+				height:20px;
+				position:absolute;
+				background-image: url('images/chair-light.png');
+				cursor:pointer;
+			}
+			
+			.offline {
+				width:20px;
+				height:20px;
+				position:absolute;
+				background-image: url('images/chair-dark.png');
+			}
+			
+			.chair:hover {
+				background-image: url('images/chair.png');
+			}
+			
+			.reverse {
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+			
+		</style>
+		<script>
+			$(document).ready(
+					function() {
+						addTable(90, 110, 200, 50, "tableId");
+						addTable(90, 140, 40, 30, "table3");
+						addTable(90, 110, 100, 150, "table2");
+					}
+				);
+				
+			function addTable(height, width, left, top, tableId) {
+				$("#container").append("<div class='table' id='table_" + tableId + "'></div>");
+				$("#container").append("<div class='tableImage' id='tableImage_" + tableId + "'></div>");
+				$("#tableImage").css("width", (width-30) + "px");
+				$("#tableImage_" + tableId).css("height", (height-60) + "px");
+				$("#tableImage_" + tableId).css("width", (width-60) + "px");
+				$("#tableImage_" + tableId).css("top", (top+30) + "px");
+				$("#tableImage_" + tableId).css("left", (left+30) + "px");
+				
+				
+				$("#table_" + tableId).css("width", width + "px");
+				$("#table_" + tableId).css("height", height + "px");
+				$("#table_" + tableId).css("top", top + "px");
+				$("#table_" + tableId).css("left", left + "px");
+				
+				for (i= width-65; i>10; i = i - 30) {
+					var chairId = "chair_" + tableId + "_" + i + "a";
+					$("#table_" + tableId).append("<div class='reverse " + getClassForOnline()+ "' id='" + chairId +"'></div>");
+					$("#" + chairId).css("left", i + 15 );
+					//$("#" + chairId).css("left", width );
+					
+					var chairId = "chair_" + tableId + "_" + i + "b";
+					$("#table_" + tableId).append("<div class='" + getClassForOnline()+ "' id='" + chairId +"'></div>");
+					$("#" + chairId).css("left", i + 15 );
+					$("#" + chairId).css("top", height-20 );
+				}
+			}
+			
+			function getClassForOnline() {
+					var random = Math.random()*10;
+					if(random<2) {
+						return "offline";
+					}
+					return "chair";
+				}
+		</script>
+
+    <title></title>
+</head>
+
+
+
+
+<body>
+
+<div class="zipper_scroll"  id="drinks_menu" style="display: block;visibility: hidden; position: fixed;">
+    <article>
+        <ul class="zipper"><li>Mojito</li><li>Sex on the beach</li><li>Bloody Mary</li><li>Desi</li><li>Mojito</li><li>Sex on the beach</li><li>Bloody Mary</li><li>Desi</li><li>Mojito</li><li>Sex on the beach</li><li>Bloody Mary</li><li>Desi</li><li>Mojito</li><li>Sex on the beach</li><li>Bloody Mary</li><li>Desi</li></ul>
+    </article>
+</div>
+<div class="zipper_scroll" id="songs_menu" style="display: block;visibility: hidden; position: fixed;">
+    <article >
+        <ul class="zipper"><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li><li>Gana</li></ul>
+    </article>
+</div>
+
+<div class="zipper_scroll" id="food_menu" style="display: block;visibility: hidden;top: 0; left:0; position: fixed;">
+    <article >
+        <ul class="zipper"><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li></ul>
+    </article>
+</div>
+
+<div id="chair_1" style="height: 50px; width: 50px; border: 1px solid black" class="chair">
+</div>
+<div id="container">
+</div>
+</body>
+
+
+<div id="chair_menu" class="chair_menu" style="display: none">
+    <table class="menu_table">
+        <tr>
+            <td><div id="poke" class="menu_item" title="Poke"><img src="./images/ping.png" alt="Send Message" height="50px" width="50px"></div></td>
+            <td><div id="chat" class="menu_item" title="Chat"><img src="./images/message.png" alt="Send Message" height="50px" width="50px"></div></td>
+            <td><div id="buy_drink" class="menu_item" title="Buy Drink"><img src="./images/drink.png" alt="Send Message" height="50px" width="50px"></div></td>
+            <td><div id="dedicate_song" class="menu_item" title="Dedicate Song"><img src="./images/song.png" alt="Send Message" height="50px" width="50px"></div></td>
+        </tr>
+    </table>
+</div>
+
+
+<div id="chat_box" style="width:100px">
+    <div id="chat_box_top">
+        <div id="chat_box_old_message">
+            <div class="chat_me_box">Text</div>
+        </div>
+        <!-- <input id="chat_box_input" placeholder="input chat"/> -->
+        <div id="chat_box_input" contenteditable="true">Tiding</div>
+        <input type="submit" id="chat_box_input_button" value="Send"/>
+    </div>
+
+    <div id="chat_box_bottom">
+    </div>
+
+</div>
+
+
+<script>
+    window.myId = "gg";
+    window.receiverId = "mangal";
+
+    $(document).ready(function() {
+        stroll.bind( '.zipper_scroll ul' );
+
+
+        $('div.chair').click(function(e){
+            $('div#chair_menu').dialog({
+                modal: true,
+                resizable: false
+
+            });
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+
+        }); //close click
+
+        $('body')
+                .bind(
+                'click',
+                function(e) {
+                    if($('div#chair_menu').dialog('isOpen') && !$(e.target).is('.ui-dialog, a')
+                            && !$(e.target).closest('.ui-dialog').length ) {
+                        $('div#chair_menu').dialog('close');
+                    }
+
+                    if($('div#drinks_menu').dialog('isOpen') && !$(e.target).is('.ui-dialog, a')
+                            && !$(e.target).closest('.ui-dialog').length ) {
+                        $('div#drinks_menu').dialog('close');
+                    }
+
+                    if($('div#songs_menu').dialog('isOpen') && !$(e.target).is('.ui-dialog, a')
+                            && !$(e.target).closest('.ui-dialog').length ) {
+                        $('div#songs_menu').dialog('close');
+                    }
+                }
+        );
+
+        $('div.menu_item').mouseover(function(event){
+            $("div.restaurantSelectMenu").removeClass("restaurantSelectMenu");
+            $(this).addClass("restaurantSelectMenu");
+        });
+
+        $('div#poke').click(function(e) {
+            if($('div#chair_menu').dialog('isOpen')) {
+                $('div#chair_menu').dialog('close');
+            }
+        });
+
+        $('div#chat').click(function(e) {
+            if($('div#chair_menu').dialog('isOpen')) {
+                $('div#chair_menu').dialog('close');
+            }
+
+            getData(window.myId, window.receiverId);
+            //var conversationData = eval("({success:true, messages:[{time:'33:20 pm', msg:'first Ping', sent:'1'},{time:'33:21 pm', msg:'Second Ping', sent:'0'}]})");
+
+
+        });
+
+        $("#chat_box_input_button").click(function(e) {
+            var message = $("div#chat_box_input").html();
+            submitData(message, window.myId, window.receiverId);
+        });
+
+        $('div#buy_drink').click(function(e) {
+            if($('div#chair_menu').dialog('isOpen')) {
+                $('div#chair_menu').dialog('close');
+            }
+            // window.open("menu.html?type=drinks_menu");
+            $('div#drinks_menu').css("visibility","visible");
+
+            $('div#drinks_menu').dialog({
+                modal: true,
+                resizable: false
+            });
+
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+
+        }); //close click
+
+        $('div#dedicate_song').click(function(e) {
+            if($('div#chair_menu').dialog('isOpen')) {
+                $('div#chair_menu').dialog('close');
+            }
+            //window.open("menu.html?type=songs_menu");
+            $('div#songs_menu').css("visibility","visible");
+
+            $('div#songs_menu').dialog({
+                modal: true,
+                resizable: false
+            });
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+
+        $('li').mouseover(function(){
+            $('.selectedLi').removeClass("selectedLi");
+            $(this).addClass('selectedLi');
+        });
+
+        $('li').click(function(){
+
+        });
+
+
+
+        function submitData(message, myId, receiverId) {
+            console.log(message);
+
+            $.ajax({
+                url: "http://akush.in/openhack2012/sendMessage.php",
+                data: "sender="+myId+"&receiver="+receiverId+"&message="+message,
+                success: function(data) {
+                    console.log("submitData: " + data);
+                    $("#chat_box_input").html("");
+                },
+                error : function() {
+
+                }
+            });
+
+            var baap = $("div#chat_box_old_message");
+            addNewMessage(message, baap);
+        };
+
+        function getData(myId, receiverId) {
+
+            $.ajax({
+                url: "http://akush.in/openhack2012/getMessage.php",
+                data: "sender="+myId+"&receiver="+receiverId+"&all",
+                success: function(data) {
+                    console.log("getdata: " + data);
+                    if(data) {
+                        renderConversation(data.messages);
+                    }
+                },
+                error : function(data) {
+                },
+                dataType: "json"
+            });
+        };
+
+        function renderConversation(conversationData) {
+
+            $('div#chat_box_old_message').empty();
+            var baap = $("div#chat_box_old_message");
+            if(!conversationData || conversationData.length == 0 ){
+                // If conversation data is null, do nothing
+                return;
+            } else {
+                // If conversation data is not null add divs
+                var i;
+                for(i=0; i<conversationData.length; i++) {
+                    addNewMessage(conversationData[i], baap)
+                }
+            }
+
+        };
+
+        function addNewMessage(data, baap) {
+
+            var message = data.msg;
+            var sent = data.sent;
+
+
+            var conv_div = $("<div/>").html(message).appendTo(baap);
+
+            if(sent == 1) {
+                // I sent this one, so it will be Me
+                conv_div.addClass("chat_me_box");
+            } else {
+                // Stranger sent this, so it will be stranger
+                conv_div.addClass("chat_stranger_box");
+            }
+        };
+
+
+
+
+    });
+
+
+</script>
+</html>

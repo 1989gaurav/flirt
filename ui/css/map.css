@@ -1,0 +1,141 @@
+div.menu_item {
+    height: 50px;
+    width: 50px;
+}
+
+div.restaurantSelectMenu {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 5px;
+}
+
+.ui-dialog-titlebar {
+    display: none !important;
+}
+
+.ui-dialog-titlebar-close {
+    display: block;
+}
+
+.ui-widget-header {
+    background: none !important;
+    border:  none !important;
+}
+
+.ui-dialog {
+    background: none !important;
+    border: none !important;
+}
+
+li .selectedLi {
+    background-color: #99a8dc !important;
+}
+
+div #chat_box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 200px;
+    width: 160px !important;
+    border:2px solid #000;
+}
+
+div #chat_box_top {
+    border-width: 1px 1px 0 1px;
+    border-color: #000000;
+    border-radius: 5px;
+    background-color: #dcdcdc;
+    height: 150px;
+    width: 150px;
+}
+
+div #chat_box_old_message {
+    background-color: #bfbcdc;
+    height: 120px;
+    width: 150px;
+    overflow: auto;
+}
+div #chat_box_input {
+    background-color: #F0F0FF;
+    color: black;
+    font-size: 10px;
+    height: 20px;
+    padding: 5px;
+    width: 120px;
+
+}
+
+div .chat_me_box {
+    background-color: #90EE90;
+    border: 1px solid #BDB76B;
+    border-radius: 6px 6px 6px 6px;
+    color: #000000;
+    float: left;
+    font-size: 10px;
+    margin-bottom: 5px;
+    margin-left: 3px;
+    padding: 2px;
+    width: 100px;
+
+}
+
+div #chat_box_input_button
+{
+    background-color: #B4B1DC;
+    border: medium none;
+    height: 30px;
+    left: 110px;
+    position: relative;
+    top: -30px;
+    width: 40px;
+}
+
+
+
+div .chat_stranger_box {
+    background-color: #9c99ee;
+    border: 1px solid #BDB76B;
+    border-radius: 6px 6px 6px 6px;
+    color: #000000;
+    float: right;
+    font-size: 10px;
+    margin-bottom: 5px;
+    margin-right: 3px;
+    padding: 2px;
+    width: 100px;
+}
+
+div .pokeNotification {
+    width: 200px;
+    min-height: 20px;
+    background-color: gray;
+    border: 1px solid #4b4b4b;
+    border-radius: 10px 10px 10px 10px;
+    left: 190px;
+    padding: 5px;
+    position: absolute;
+    top: 200px;
+    width: 200px;
+
+}
+
+div .selectedVibChair {
+    background-image: url('../images/chair.png');
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+div .unselectedVibChair {
+    background-image: url('../images/chair-light.png');
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+
+
+

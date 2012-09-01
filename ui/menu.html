@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="js/stroll.js"></script>
+    <!-- <script src="../facebox/facebox.js"></script> -->
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/smoothness/jquery-ui.css" rel="StyleSheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/map.css" />
+    <link rel="stylesheet" href="css/example.css">
+    <link rel="stylesheet" href="css/stroll.css">
+    <!--<link rel="stylesheet" href="../facebox/facebox.css"> -->
+
+    <title></title>
+</head>
+<body>
+
+
+<div class="zipper_scroll" id="food_menu" style="display: block;visibility: hidden;top: 0; left:0; position: fixed;">
+    <article >
+        <ul class="zipper"><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li><li>Some Food</li></ul>
+    </article>
+</div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        stroll.bind( '.zipper_scroll ul' );
+
+        $('div#food_menu').css("visibility","visible");
+
+    });
+
+    function getURLParameter(name) {
+        return decodeURI(
+                (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+        );
+    }
+</script>
+</html>
